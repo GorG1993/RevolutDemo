@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.example.revolutdemo.ui.CurrencyViewModel"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+        <TextView
+                android:id="@+id/post_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                app:mutableText="@{viewModel.getPostTitle()}"
+                app:layout_constraintEnd_toStartOf="@+id/post_body"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="USD"
+                app:layout_constraintBottom_toBottomOf="@+id/post_body"
+
+
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+                android:id="@+id/post_body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="0.167"
+                app:mutableText="@{viewModel.getPostBody()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/post_title"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/post_title"
+        />
+    </android.support.constraint.ConstraintLayout>
+</layout>
