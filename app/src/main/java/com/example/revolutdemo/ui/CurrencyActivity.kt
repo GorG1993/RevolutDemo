@@ -23,7 +23,7 @@ class CurrencyActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_currency)
         binding.postList.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        viewModel = ViewModelProviders.of(this, ViewModelFactory(this)).get(CurrencyListViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, ViewModelFactory()).get(CurrencyListViewModel::class.java)
         viewModel.errorMessage.observe(this, Observer {
                 errorMessage -> if(errorMessage != null) showError(errorMessage) else hideError()
         })
